@@ -15,3 +15,27 @@
   args:
   - 'push'
   - 'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd:latest'
+  
+steps:
+  # Docker Build
+  - name: 'gcr.io/deeplearning-platform-release/base-cpu'
+    args: ['build', '-t', 
+           'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/deeplearning-platform-release/base-cpur'
+    args: ['push', 
+           'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
+
+  # Entrypoint, timeout and environment variables
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 240s
+    args: ['compute', 'instances', 
+           'create-with-container', 'smumlesean-useast',
+           '--container-image', 
+           'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicde']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-east1'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-a'
