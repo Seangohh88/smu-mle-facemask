@@ -1,21 +1,3 @@
-# This step builds the container image.
-- name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
-  id: Build
-  args:
-  - 'build'
-  - '-t'
-  - 'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd:latest'
-  - '.'
-
-# This step pushes the image to Artifact Registry
-# The PROJECT_ID and SHORT_SHA variables are automatically
-# replaced by Cloud Build.
-- name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
-  id: Push
-  args:
-  - 'push'
-  - 'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd:latest'
-  
 steps:
   # Docker Build
   - name: 'gcr.io/deeplearning-platform-release/base-cpu'
