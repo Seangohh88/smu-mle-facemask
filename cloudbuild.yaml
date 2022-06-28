@@ -2,22 +2,9 @@ steps:
   # Docker Build
   - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
     args: ['build', '-t', 
-           'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2', 
-           '.']
+           '.','us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2']
 
   # Docker Push
   - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
-    args: ['push', 
+    args: ['push', '.',
            'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2']
-  # Gcloud
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    timeout: 240s
-    args: ['compute', 'instances', 
-           'create-with-container', 'smumlesean-useasttest',
-           '--container-image', 
-           'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2']
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-east1'
-      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
-
