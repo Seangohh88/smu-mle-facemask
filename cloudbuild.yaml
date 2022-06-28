@@ -14,9 +14,9 @@ steps:
     entrypoint: 'gcloud'
     timeout: 240s
     args: ['compute', 'instances', 
-           'create-with-container', 'smumlesean-useast',
+           'create-with-container', 'smumlesean-useasttest',
            '--container-image', 
-           'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
+           'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-east1'
       - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
