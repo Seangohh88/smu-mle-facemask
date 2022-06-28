@@ -9,7 +9,7 @@ steps:
   - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
     args: ['push', 
            'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata']
-
+  # Gcloud
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     timeout: 240s
