@@ -20,3 +20,4 @@ steps:
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-east1'
       - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
+    logging: None
