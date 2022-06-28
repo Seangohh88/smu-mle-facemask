@@ -10,13 +10,13 @@ steps:
     args: ['push', 
            'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
 
-   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-     entrypoint: 'gcloud'
-     timeout: 240s
-     args: ['compute', 'instances', 
-            'create-with-container', 'smumlesean-useast',
-            '--container-image', 
-            'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
-     env:
-       - 'CLOUDSDK_COMPUTE_REGION=us-east1'
-       - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 240s
+    args: ['compute', 'instances', 
+           'create-with-container', 'smumlesean-useast',
+           '--container-image', 
+           'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-east1'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
