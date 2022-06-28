@@ -13,7 +13,7 @@ steps:
   # Entrypoint, timeout and environment variables
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
-    timeout: 240s
+    timeout: 180s
     args: ['compute', 'instances', 
            'create-with-container', 'smumlesean-useast',
            '--container-image', 
