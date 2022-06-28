@@ -1,10 +1,13 @@
 steps:
   # Docker Build
   - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
-    args: ['build', '.' , '-t', 
-           'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2']
+    args: ['build', '-t', 
+           'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2', 
+           '.']
 
   # Docker Push
   - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
-    args: ['push',
+    args: ['push', 
            'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata2']
+
+
