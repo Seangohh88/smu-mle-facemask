@@ -6,6 +6,6 @@ steps:
            '.']
 
   # Docker Push
-  - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
+  - name: 'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd'
     args: ['push', 
            'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
