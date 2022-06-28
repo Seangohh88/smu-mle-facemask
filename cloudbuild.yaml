@@ -1,13 +1,12 @@
 steps:
   # Docker Build
   - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
-    entrypoint: 'python generatedata.py'
     args: ['build', '-t', 
            'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd', 
            '.']
 
   # Docker Push
-  - name: 'gcr.io/deeplearning-platform-release/base-cpu'
+  - name: 'us-east1-docker.pkg.dev/daring-hash-348101/smu-mle-usa/generatedata'
     entrypoint: 'generatedata.py'
     args: ['push', 
            'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicd']
