@@ -20,4 +20,4 @@ steps:
            'us-east1-docker.pkg.dev/daring-hash-348101/facemaskcicd-docker-repo/cicde']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-east1'
-      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-a'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
